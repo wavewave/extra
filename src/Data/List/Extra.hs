@@ -1,4 +1,4 @@
-{-# LANGUAGE TupleSections, ConstraintKinds #-}
+{-# LANGUAGE CPP, TupleSections, ConstraintKinds #-}
 
 -- | This module extends "Data.List" with extra functions of a similar nature.
 --   The package also exports the existing "Data.List" functions.
@@ -18,7 +18,11 @@ module Data.List.Extra(
     wordsBy, linesBy,
     breakOn, breakOnEnd, splitOn, split, chunksOf,
     -- * Basics
-    headDef, lastDef, (!?), notNull, list, unsnoc, cons, snoc,
+    headDef, lastDef,
+#if !MIN_VERSION_base(4, 18, 0)
+    (!?),
+#endif
+    notNull, list, unsnoc, cons, snoc,
     drop1, dropEnd1, mconcatMap, compareLength, comparingLength,
     -- * Enum operations
     enumerate,
@@ -161,7 +165,9 @@ lastDef d xs = foldl (\_ x -> x) d xs -- I know this looks weird, but apparently
 -- > [2,3,4] !? 1    == Just 3
 -- > [2,3,4] !? (-1) == Nothing
 -- > []      !? 0    == Nothing
+#if !MIN_VERSION_base(4, 18, 0)
 (!?) :: [a] -> Int -> Maybe a
+#endif
 xs !? n
   | n < 0     = Nothing
              -- Definition adapted from GHC.List
