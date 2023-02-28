@@ -19,7 +19,7 @@ module Data.List.Extra(
     breakOn, breakOnEnd, splitOn, split, chunksOf,
     -- * Basics
     headDef, lastDef,
-#if !MIN_VERSION_base(4, 18, 0)
+#if !MIN_VERSION_base(4, 18, 0) || !MIN_VERSION_GLASGOW_HASKELL(9, 7, 0, 0)
     (!?),
 #endif
     notNull, list, unsnoc, cons, snoc,
