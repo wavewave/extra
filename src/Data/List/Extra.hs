@@ -49,7 +49,7 @@ import Data.Char
 import Data.Tuple.Extra
 import Data.Monoid
 import Numeric
-import Data.Functor
+import Data.Functor hiding (unzip)
 import Data.Foldable
 import Prelude
 import Data.List.NonEmpty (NonEmpty ((:|)))
