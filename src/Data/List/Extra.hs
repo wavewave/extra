@@ -42,7 +42,7 @@ module Data.List.Extra(
     ) where
 
 import Partial
-import Data.List
+import Data.List hiding (unsnoc)
 import Data.Maybe
 import Data.Function
 import Data.Char
