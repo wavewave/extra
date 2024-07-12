@@ -39,7 +39,7 @@ module Data.List.Extra(
     ) where
 
 import Partial
-import Data.List
+import Data.List hiding (compareLength)
 import Data.Maybe
 import Data.Function
 import Data.Char
